@@ -1,23 +1,22 @@
 import {
-  Container,
-  Box,
   Avatar,
+  Box,
   Button,
+  Container,
   HStack,
-  VStack,
   Image,
   Input,
-  Spacer,
+  Link,
   Menu,
   MenuButton,
-  MenuList,
-  MenuItem,
-  Text,
-  Link,
   MenuDivider,
+  MenuItem,
+  MenuList,
+  Spacer,
+  Text,
   useColorModeValue,
+  VStack,
 } from "@chakra-ui/react";
-import { ReactNode } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useCard } from "../../contexts/CardsContext";
 import CreateCard from "./CreateCard";

@@ -1,7 +1,22 @@
-import { Box, Checkbox, Heading, HStack, Input, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Checkbox,
+  Heading,
+  HStack,
+  IconButton,
+  Input,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
+import { AiOutlineEdit } from "react-icons/ai";
+import { FiMoreVertical } from "react-icons/fi";
+import { useCard } from "../../contexts/CardsContext";
 
-const Card = ({ title = "Title" }) => {
+const Card = ({ title = "Title", id }) => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
   const handleSubmit = (c) => {
@@ -10,11 +25,18 @@ const Card = ({ title = "Title" }) => {
       setTasks((e) => [...e, { name: newTask }]);
       setNewTask("");
     }
-    console.log("works");
+  };
+  const [state, dispatch] = useCard();
+  const deleteHandler = (id) => {
+    dispatch({ type: "remove", payload: id });
+  };
+  const handleRename = (id) => {
+    console.log("handleRename");
   };
   return (
     <Box
       w={300}
+      position="relative"
       textAlign="center"
       borderRadius={20}
       bg={"orange.200"}
@@ -22,6 +44,26 @@ const Card = ({ title = "Title" }) => {
       p={7}
       m={10}
     >
+      <Menu>
+        <MenuButton
+          as={IconButton}
+          isRound={true}
+          icon={<FiMoreVertical size={"20px"} />}
+          bg="transparent"
+          position="absolute"
+          color={"green.900"}
+          top={2}
+          right={2}
+        />
+        <MenuList color="white">
+          <MenuItem onClick={() => handleRename(id)} icon={<AiOutlineEdit />}>
+            Edit name
+          </MenuItem>
+          <MenuItem color="red" onClick={() => deleteHandler(id)}>
+            Remove
+          </MenuItem>
+        </MenuList>
+      </Menu>
       <Heading fontSize="3xl" letterSpacing={10} m={2}>
         {title}
       </Heading>

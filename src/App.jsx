@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useColorMode } from "@chakra-ui/react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -8,6 +9,10 @@ import ResetPassword from "./pages/ResetPassword";
 import Signup from "./pages/Signup";
 
 function App() {
+  const { colorMode, toggleColorMode } = useColorMode();
+  useEffect(() => {
+    toggleColorMode();
+  }, []);
   return (
     <AuthProvider>
       <Routes>

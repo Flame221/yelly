@@ -10,6 +10,8 @@ const reducer = (state, { type, payload }) => {
   switch (type) {
     case "add":
       return { cards: [...state.cards, { title: payload }] };
+    case "remove":
+      return { cards: state.cards.filter((c, i) => i !== payload) };
     default:
       throw new Error();
   }

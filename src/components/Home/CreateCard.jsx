@@ -1,4 +1,3 @@
-import React, { useRef } from "react";
 import {
   Box,
   Button,
@@ -11,14 +10,10 @@ import {
   DrawerOverlay,
   FormLabel,
   Input,
-  InputGroup,
-  InputLeftAddon,
-  InputRightAddon,
-  Select,
   Stack,
-  Textarea,
   useDisclosure,
 } from "@chakra-ui/react";
+import React, { useRef } from "react";
 import { GrAdd } from "react-icons/gr";
 import { useCard } from "../../contexts/CardsContext";
 

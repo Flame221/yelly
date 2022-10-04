@@ -1,14 +1,6 @@
-import {
-  Button,
-  Heading,
-  HStack,
-  SimpleGrid,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { SimpleGrid, VStack } from "@chakra-ui/react";
 import React from "react";
 import { useCard } from "../../contexts/CardsContext";
-import ShowUser from "../ShowUser";
 import Card from "./Card";
 
 const Main = () => {
@@ -25,8 +17,8 @@ const Main = () => {
           spacing={10}
           mb={4}
         >
-          {state.cards.map((e) => (
-            <Card key={e.title} title={e.title} />
+          {state.cards.map((e, id) => (
+            <Card key={e.title} title={e.title} id={id} />
           ))}
         </SimpleGrid>
       </VStack>

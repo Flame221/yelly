@@ -35,9 +35,6 @@ const Login = () => {
     } catch (error) {
       console.log("login error: " + error);
     }
-
-    console.log(data.email);
-    console.log(data.password);
   };
 
   return (
